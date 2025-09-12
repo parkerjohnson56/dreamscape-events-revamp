@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import { Sparkles, Eye, RefreshCw, Dice1, Dice2, Info, Target, Gift } from 'lucide-react';
 
@@ -38,7 +37,7 @@ export default function FortuneTeller() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -119,10 +118,10 @@ export default function FortuneTeller() {
               <div>
                 <h3 className="font-semibold text-dark-700 mb-1 text-sm">Game Disclaimer</h3>
                 <p className="text-dark-600 text-xs leading-relaxed">
-                  <strong>A mini game was required for this project!</strong> This is a "Snake Eyes" style guessing game. 
+                  <strong>A mini game was required for this project!</strong> This is a &ldquo;Snake Eyes&rdquo; style guessing game. 
                   Choose a number between 1-10 and try to match the cosmic dice roll. If your numbers align, 
-                  you'll receive a fortune! If not, the cosmic forces remain mysterious. 
-                  It's all about chance and cosmic alignment! ✨
+                  you&apos;ll receive a fortune! If not, the cosmic forces remain mysterious. 
+                  It&apos;s all about chance and cosmic alignment! ✨
                 </p>
               </div>
             </div>
@@ -247,7 +246,7 @@ export default function FortuneTeller() {
                       </div>
                       
                       <div className={`p-4 rounded-xl border-2 ${
-                        userGuess < 1 || userGuess > 10
+                        typeof userGuess === 'number' && (userGuess < 1 || userGuess > 10)
                           ? 'bg-gradient-to-r from-red-50 to-orange-50 border-red-300'
                           : userGuess === fortuneNumber 
                             ? 'bg-gradient-to-r from-primary-50 to-sage-50 border-primary-200' 
@@ -255,22 +254,22 @@ export default function FortuneTeller() {
                       }`}>
                         <div className="flex items-center justify-center mb-2">
                           <Gift className={`w-4 h-4 mr-2 ${
-                            userGuess < 1 || userGuess > 10 
+                            typeof userGuess === 'number' && (userGuess < 1 || userGuess > 10) 
                               ? 'text-red-600' 
                               : userGuess === fortuneNumber ? 'text-primary-600' : 'text-red-500'
                           }`} />
                           <span className={`font-bold text-base ${
-                            userGuess < 1 || userGuess > 10
+                            typeof userGuess === 'number' && (userGuess < 1 || userGuess > 10)
                               ? 'text-red-800'
                               : userGuess === fortuneNumber ? 'text-primary-700' : 'text-red-700'
                           }`}>
-                            {userGuess < 1 || userGuess > 10 
+                            {typeof userGuess === 'number' && (userGuess < 1 || userGuess > 10) 
                               ? 'INVALID NUMBER!' 
                               : userGuess === fortuneNumber ? 'COSMIC ALIGNMENT!' : 'Cosmic Mismatch'}
                           </span>
                         </div>
                         <p className={`font-italiana text-base text-center font-bold ${
-                          userGuess < 1 || userGuess > 10
+                          typeof userGuess === 'number' && (userGuess < 1 || userGuess > 10)
                             ? 'text-red-800'
                             : userGuess === fortuneNumber ? 'text-primary-700' : 'text-red-700'
                         }`}>

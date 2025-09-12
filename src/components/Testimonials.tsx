@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import { Star, Quote } from 'lucide-react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -47,7 +47,7 @@ export default function Testimonials() {
     }
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -80,7 +80,7 @@ export default function Testimonials() {
 
           {/* Testimonials Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.id}
                 variants={cardVariants}
@@ -93,9 +93,11 @@ export default function Testimonials() {
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700 h-full">
                   {/* Image Section */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={testimonial.image}
                       alt={`${testimonial.names} wedding`}
+                      width={400}
+                      height={300}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -117,7 +119,7 @@ export default function Testimonials() {
                     <div className="relative mb-4">
                       <Quote className="w-6 h-6 text-primary-400 dark:text-primary-300 mb-2 opacity-60" />
                       <p className="text-dark-600 dark:text-gray-300 text-sm leading-relaxed italic">
-                        "{testimonial.text}"
+                        &ldquo;{testimonial.text}&rdquo;
                       </p>
                     </div>
 
@@ -140,7 +142,7 @@ export default function Testimonials() {
           <motion.div variants={cardVariants} className="text-center mt-8">
             <p className="text-dark-600 dark:text-gray-300 text-sm">
               Ready to create your own magical memories? 
-              <span className="font-semibold text-primary-600 dark:text-primary-400"> Let's make your dream event a reality!</span>
+              <span className="font-semibold text-primary-600 dark:text-primary-400"> Let&apos;s make your dream event a reality!</span>
             </p>
           </motion.div>
         </motion.div>

@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useModal } from '@/contexts/ModalContext';
-import { Heart, Sparkles, Users, Star, Award, Zap, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Heart, Sparkles, Users, Star, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 const sitemapLinks = {
   navigation: [
@@ -44,7 +44,7 @@ export default function Footer() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -138,7 +138,7 @@ export default function Footer() {
                   Dreamscape Events
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6 text-sm lg:text-base">
-                  Turning dreams into reality, one event at a time. We craft unforgettable moments that become the stories you'll tell for years to come.
+                  Turning dreams into reality, one event at a time. We craft unforgettable moments that become the stories you&apos;ll tell for years to come.
                 </p>
                 <button
                   onClick={openBookingModal}

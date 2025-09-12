@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle, AlertCircle, Phone } from 'lucide-react';
+import { X, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 
 interface FormData {
   firstName: string;
@@ -127,7 +128,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="relative w-full max-w-5xl max-h-[95vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -150,9 +151,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     transition={{ delay: 0.2 }}
                     className="mb-6"
                   >
-                    <img
+                    <Image
                       src="/images/booking.jpeg"
                       alt="Get Your Quote"
+                      width={300}
+                      height={200}
                       className="w-full max-w-xs h-48 object-cover rounded-2xl shadow-2xl mx-auto"
                     />
                   </motion.div>
@@ -162,7 +165,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     transition={{ delay: 0.3 }}
                     className="font-italiana text-2xl mb-3 font-semibold"
                   >
-                    Let's Create Magic Together
+                    Let&apos;s Create Magic Together
                   </motion.h2>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -170,7 +173,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     transition={{ delay: 0.4 }}
                     className="text-base opacity-90"
                   >
-                    Tell us about your dream event and we'll make it a reality
+                    Tell us about your dream event and we&apos;ll make it a reality
                   </motion.p>
                 </div>
               </div>
@@ -205,7 +208,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         Get Your Quote Today
                       </h3>
                       <p className="text-dark-500 text-sm">
-                        Fill out the form below and we'll get back to you with a personalized quote
+                        Fill out the form below and we&apos;ll get back to you with a personalized quote
                       </p>
                     </div>
 

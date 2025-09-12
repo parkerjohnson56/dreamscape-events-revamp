@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Star, Sparkles, Heart, Crown, Gift, Users, Camera, Music, Utensils, Calendar, Phone } from 'lucide-react';
+import { Star, Sparkles, Heart, Crown, Gift, Users, Camera, Music, Utensils, Calendar, Phone } from 'lucide-react';
 import { useModal } from '@/contexts/ModalContext';
+import Image from 'next/image';
 
 const packages = {
   starter: {
@@ -72,7 +71,7 @@ export default function Packages() {
     }
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -84,18 +83,6 @@ export default function Packages() {
     }
   };
 
-  const iconVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.3,
-        ease: "backOut"
-      }
-    }
-  };
 
   return (
     <section id="packages" className="bg-gradient-to-br from-stone-50 to-amber-50 dark:from-gray-950 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
@@ -125,7 +112,7 @@ export default function Packages() {
             variants={containerVariants}
             className="grid lg:grid-cols-3 gap-4"
           >
-            {Object.entries(packages).map(([key, pkg], index) => {
+            {Object.entries(packages).map(([key, pkg]) => {
               const IconComponent = pkg.icon;
               return (
                 <motion.div
@@ -141,9 +128,11 @@ export default function Packages() {
                   <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                     {/* Image Section */}
                     <div className="relative h-32 overflow-hidden">
-                      <img
+                      <Image
                         src={pkg.image}
                         alt={pkg.name}
+                        width={400}
+                        height={200}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${pkg.color} opacity-20`}></div>
@@ -182,7 +171,7 @@ export default function Packages() {
                       <div className="space-y-2 mb-4 flex-1">
                         <h4 className="font-semibold text-dark-700 dark:text-gray-200 flex items-center text-xs">
                           <Star className="w-3 h-3 mr-1 text-primary-500 dark:text-primary-400" />
-                          What's Included
+                          What&apos;s Included
                         </h4>
                         <ul className="space-y-1">
                           {pkg.features.map((feature, featureIndex) => {

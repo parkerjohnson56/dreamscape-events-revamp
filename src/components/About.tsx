@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
-import { Heart, Sparkles, Users, Star, Award, Zap } from 'lucide-react';
+import { Heart, Sparkles, Users, Star, Award } from 'lucide-react';
 import { useModal } from '@/contexts/ModalContext';
+import Image from 'next/image';
 
 const values = [
   {
@@ -45,7 +45,7 @@ export default function About() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -91,8 +91,8 @@ export default function About() {
                 At Dreamscape Events, we believe that every celebration deserves to be as magical and unique as the people behind it. From intimate gatherings to grand affairs, our passion lies in crafting unforgettable moments that leave a lasting impression.
               </p>
               
-              <p className="text-lg leading-relaxed text-dark-600 dark:text-gray-300 mb-6">
-                With a keen eye for detail and a flair for creativity, we transform your vision into a seamless and stunning event. Whether you're dreaming of a romantic wedding under the stars, a chic corporate gala, or a whimsical birthday bash, we bring your ideas to life with style, elegance, and a touch of enchantment.
+                <p className="text-lg leading-relaxed text-dark-600 dark:text-gray-300 mb-6">
+                With a keen eye for detail and a flair for creativity, we transform your vision into a seamless and stunning event. Whether you&apos;re dreaming of a romantic wedding under the stars, a chic corporate gala, or a whimsical birthday bash, we bring your ideas to life with style, elegance, and a touch of enchantment.
               </p>
 
               <motion.button
@@ -107,9 +107,11 @@ export default function About() {
             <motion.div variants={itemVariants} className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl transform rotate-3 opacity-20"></div>
               <div className="relative bg-white rounded-3xl p-2 shadow-2xl">
-                <img
+                <Image
                   src="/images/about-us.jpg"
                   alt="About Us"
+                  width={500}
+                  height={500}
                   className="w-full h-96 lg:h-[500px] object-cover rounded-2xl"
                 />
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4">
@@ -168,7 +170,7 @@ export default function About() {
             >
               <div className="bg-gradient-to-r from-primary-100 to-sage-100 dark:from-gray-700 dark:to-gray-600 rounded-3xl p-8 border border-primary-200 dark:border-gray-600">
                 <blockquote className="font-italiana text-xl text-dark-700 dark:text-gray-200 italic mb-4 font-bold">
-                  "At Dreamscape Events, we don't just plan events – we craft experiences that become the stories you'll tell for years to come."
+                  &ldquo;At Dreamscape Events, we don&apos;t just plan events – we craft experiences that become the stories you&apos;ll tell for years to come.&rdquo;
                 </blockquote>
                 <cite className="text-primary-600 dark:text-primary-400 font-semibold">— The Dreamscape Events Team</cite>
               </div>

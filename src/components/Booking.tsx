@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 
 interface FormData {
   firstName: string;
@@ -158,9 +159,11 @@ export default function Booking() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <img
+            <Image
               src="/images/booking.jpeg"
               alt="Booking"
+              width={500}
+              height={500}
               className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-xl"
             />
           </motion.div>
