@@ -9,15 +9,22 @@ export default function Hero() {
       id="hero"
       className="relative h-[80vh] bg-cover bg-center bg-fixed"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("/images/hero-image.jpg")'
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/mobilehero.jpg")'
       }}
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white dark:text-gray-100 transition-colors duration-300">
-        <h2 className="font-satisfy text-4xl sm:text-5xl lg:text-6xl mb-4 dark:text-gray-100">
+      {/* Desktop background image */}
+      <div 
+        className="hidden md:block absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("/images/hero-image.jpg")'
+        }}
+      ></div>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white dark:text-gray-100 transition-colors duration-300 px-4 md:px-0">
+        <h2 className="font-satisfy text-4xl sm:text-5xl lg:text-6xl mb-4 dark:text-gray-100 max-w-4xl">
           Plan Your Dream Event
         </h2>
-        <p className="font-italiana text-xl sm:text-2xl lg:text-3xl font-semibold mb-8 dark:text-gray-200">
-          Turning Dreams into Reality, One Event at a Time
+        <p className="font-italiana text-xl sm:text-2xl lg:text-3xl font-semibold mb-8 dark:text-gray-200 max-w-4xl leading-relaxed">
+          Turning Dreams into Reality,<br className="md:hidden" /> One Event at a Time
         </p>
         <button
           onClick={openBookingModal}
