@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section 
       id="hero"
-      className="relative h-[80vh] bg-cover bg-center bg-fixed"
+      className="relative h-[80vh] bg-cover bg-center md:bg-fixed"
       style={{
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/mobilehero.jpg")'
       }}
