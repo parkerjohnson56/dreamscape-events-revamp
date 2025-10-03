@@ -129,7 +129,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative w-full max-w-5xl max-h-[95vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
+            className="relative w-full max-w-5xl max-h-[95vh] md:max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -141,9 +141,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               <X className="w-5 h-5 text-gray-600" />
             </button>
 
-            <div className="grid lg:grid-cols-5 min-h-[500px]">
+            <div className="grid lg:grid-cols-5 min-h-[500px] max-h-[95vh] md:max-h-[90vh]">
               {/* Image Section */}
-              <div className="relative bg-gradient-to-br from-primary-500 to-primary-600 p-6 flex items-center justify-center lg:col-span-2">
+              <div className="relative bg-gradient-to-br from-primary-500 to-primary-600 p-6 flex items-center justify-center lg:col-span-2 hidden lg:flex">
                 <div className="text-center text-white">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -179,7 +179,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               {/* Form Section */}
-              <div className="lg:col-span-3 p-6 overflow-y-auto max-h-[95vh]">
+              <div className="lg:col-span-3 p-4 md:p-6 overflow-y-auto max-h-[85vh] md:max-h-[80vh]">
                 {isSubmitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
